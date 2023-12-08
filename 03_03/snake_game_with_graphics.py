@@ -108,7 +108,9 @@ def reset():
 screen = turtle.Screen()
 screen.setup(WIDTH, HEIGHT)  # Set the dimensions of the Turtle Graphics window.
 screen.title("Snake")
-screen.bgcolor("yellow")
+screen.bgpic("assets/bg2.gif")
+screen.register_shape("assets/snake-food-32x32.gif")
+screen.register_shape("assets/snake-head-20x20.gif")
 screen.tracer(0)  # Turn off automatic animation.
 
 # Event handlers
@@ -123,8 +125,7 @@ stamper.penup()
 
 # Food
 food = turtle.Turtle()
-food.shape("triangle")
-food.color("red")
+food.shape("assets/snake-food-32x32.gif")
 food.shapesize(FOOD_SIZE / 20)
 food.penup()
 
