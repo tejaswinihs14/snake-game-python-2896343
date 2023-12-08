@@ -5,7 +5,7 @@ import random
 # Define program constants
 WIDTH = 800
 HEIGHT = 600
-DELAY = 100  # Milliseconds
+DELAY = 75  # Milliseconds
 FOOD_SIZE = 32
 SNAKE_SIZE = 20
 
@@ -15,6 +15,23 @@ offsets = {
     "left": (-SNAKE_SIZE, 0),
     "right": (SNAKE_SIZE, 0)
 }
+
+# High score
+high_score = 0
+
+# Load the high score if it exists
+try:
+    with open("high_score.txt", "r") as file:
+        high_score = int(file.read())
+except FileNotFoundError:
+    pass
+
+def update_high_score():
+    global high_score
+    if score > high_score:
+        high_score = score
+        with open("high_score.txt", "w") as file:
+            file.write(str(high_score))
 
 
 def bind_direction_keys():
@@ -69,7 +86,7 @@ def game_loop():
             stamper.stamp()
 
         # Refresh screen
-        screen.title(f"Snake Game. Score: {score}")
+        screen.title(f"Snake Game. Score: {score} High Score: {high_score}")
         screen.update()
 
         # Rinse and repeat
@@ -80,6 +97,7 @@ def food_collision():
     global food_pos, score
     if get_distance(snake[-1], food_pos) < 20:
         score += 1  # score = score + 1
+        update_high_score()
         food_pos = get_random_food_pos()
         food.goto(food_pos)
         return True
