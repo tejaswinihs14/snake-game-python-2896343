@@ -8,8 +8,8 @@ DELAY = 10  # Milliseconds between screen updates.
 
 
 def move_turtle():
-    my_turtle.forward(1)
-    my_turtle.right(1)
+    my_turtle.backward(1)
+    my_turtle.left(1)
     screen.update()
     screen.ontimer(move_turtle, DELAY)  # After `DELAY` milliseconds, call move_turtle again.
 

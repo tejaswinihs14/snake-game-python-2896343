@@ -17,9 +17,9 @@ stamper.shape("square")
 stamper.color("red")
 stamper.shapesize(50 / 20)
 stamper.stamp()
-stamper.penup()
+stamper.pendown()
 stamper.shapesize(10 / 20)
-stamper.goto(100, 100)
+stamper.goto(-100, -100)
 stamper.stamp()
 
 # This statement (or an equivalent) is needed at the end of all your turtle programs.

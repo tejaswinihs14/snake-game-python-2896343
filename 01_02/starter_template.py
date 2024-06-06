@@ -2,14 +2,14 @@
 import turtle
 
 # Define program constants
-WIDTH = 500
-HEIGHT = 500
+WIDTH = 100
+HEIGHT = 100
 
 # Create a window where we will do our drawing.
 screen = turtle.Screen()
 screen.setup(WIDTH, HEIGHT)  # Set the dimensions of the Turtle Graphics window.
 screen.title("Program Title")
-screen.bgcolor("cyan")
+screen.bgcolor("green")
 
 # Create a turtle to do your bidding
 my_turtle = turtle.Turtle()
